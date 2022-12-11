@@ -1616,6 +1616,8 @@ static void call_array(unsigned *ctor, int count, int reverse)
 
 static void call_constructors(soinfo *si)
 {
+    if (strcmp(si->name, "libc.so") == 0)
+        return;
     if (si->flags & FLAG_EXE) {
         TRACE("[ %5d Calling preinit_array @ 0x%08x [%d] for '%s' ]\n",
               pid, (unsigned)si->preinit_array, si->preinit_array_count,
