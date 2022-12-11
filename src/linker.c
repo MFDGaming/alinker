@@ -2092,10 +2092,11 @@ static void parse_preloads(char *path, char *delim)
     }
 }
 
+/*
 int main(int argc, char **argv)
 {
     return 0;
-}
+}*/
 
 #define ANDROID_TLS_SLOTS  BIONIC_TLS_SLOTS
 

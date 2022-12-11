@@ -675,6 +675,7 @@ utest_expect(const char*  result, const char*  format, ...)
     }
 }
 
+/*
 int  main(void)
 {
     utest_BufOut();
@@ -703,5 +704,6 @@ int  main(void)
     utest_expect("something:1234", "%s:%d", "something", 1234);
     return gFails != 0;
 }
+*/
 
 #endif /* UNIT_TESTS */
