@@ -26,6 +26,10 @@
  * SUCH DAMAGE.
  */
 
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+
 #include <alinker/linker.h>
 #include <alinker/linker_debug.h>
 #include <alinker/ba.h>

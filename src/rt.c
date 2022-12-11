@@ -31,6 +31,10 @@
  * about linker activity.
  */
 
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+
 void __attribute__((noinline)) rtld_db_dlactivity(void)
 {
 }

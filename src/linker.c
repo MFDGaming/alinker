@@ -26,6 +26,10 @@
  * SUCH DAMAGE.
  */
 
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+
 #include <linux/auxvec.h>
 #include <bsd/string.h>
 
@@ -44,6 +48,7 @@
 
 /* special private C library header - see Android.mk */
 
+#include <alinker/bionic_tls.h>
 #include <alinker/linker.h>
 #include <alinker/linker_debug.h>
 #include <alinker/linker_format.h>
@@ -2101,12 +2106,6 @@ int main(int argc, char **argv)
 {
     return 0;
 }
-
-#define TLS_SLOT_OPENGL_API 3
-
-#define TLS_SLOT_BIONIC_PREINIT TLS_SLOT_OPENGL_API
-
-#define BIONIC_TLS_SLOTS 64
 
 #define ANDROID_TLS_SLOTS  BIONIC_TLS_SLOTS
 

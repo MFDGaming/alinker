@@ -14,8 +14,8 @@ endif()
 
 add_library(alinker ${SOURCES})
 target_include_directories(alinker PUBLIC include)
-target_compile_definitions(alinker PRIVATE _GNU_SOURCE ${ANDROID_LINKER} LINKER_TEXT_BASE=0xB0001000 LINKER_AREA_SIZE=0x01000000 LINKER_DEBUG=0)
-target_link_libraries(alinker rt Threads::Threads)
+target_compile_definitions(alinker PRIVATE ${ANDROID_LINKER} LINKER_TEXT_BASE=0xB0001000 LINKER_AREA_SIZE=0x01000000 LINKER_DEBUG=0)
+target_link_libraries(alinker rt bsd Threads::Threads)
 
 if(${IS_ARM_BUILD})
     set_target_properties(alinker PROPERTIES COMPILE_FLAGS "-mthumb" LINK_FLAGS "-mthumb")
