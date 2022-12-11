@@ -139,18 +139,6 @@ unsigned bitmask[4096];
 #define PT_ARM_EXIDX    0x70000001      /* .ARM.exidx segment */
 #endif
 
-#define HOODLUM(name, ret, ...)                                               \
-    ret name __VA_ARGS__                                                      \
-    {                                                                         \
-        char errstr[] = "ERROR: " #name " called from the dynamic linker!\n"; \
-        write(2, errstr, sizeof(errstr));                                     \
-        abort();                                                              \
-    }
-HOODLUM(malloc, void *, (size_t size));
-HOODLUM(free, void, (void *ptr));
-HOODLUM(realloc, void *, (void *ptr, size_t size));
-HOODLUM(calloc, void *, (size_t cnt, size_t size));
-
 static char tmp_err_buf[768];
 static char __linker_dl_err_buf[768];
 #define DL_ERR(fmt, x...)                                                     \
